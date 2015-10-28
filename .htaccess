@@ -1,7 +1,7 @@
-AuthName "Hey! papers please..."
-AuthType Basic
-AuthUserFile "home/jnthnch/public_html/fujo_ch/wp-content/themes/lambda/.htpasswd"
-Require valid-user
+# AuthName "Hey! papers please..."
+# AuthType Basic
+# AuthUserFile "home/jnthnch/public_html/fujo_ch/wp-content/themes/lambda/.htpasswd"
+# Require valid-user
 
 # disable hotlinking of images with forbidden or custom image option
 RewriteEngine on
