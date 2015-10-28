@@ -46,8 +46,8 @@ bonjour@fujo.ch
     {% endblock %}
 	</head>
 	<body class="{{ body_class }}">
+        {#
         {% include 'snippets/mobilenav.twig' %}
-
         {% block header %}
             {% include 'snippets/header.twig' %}
         {% endblock %}
@@ -56,7 +56,7 @@ bonjour@fujo.ch
             {% block content %}
             {% endblock %}
         </div>
-        {#
+
         {% block footer %}
             {% include 'snippets/footer.twig' %}
         {% endblock %}
