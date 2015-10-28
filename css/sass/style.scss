@@ -1,0 +1,548 @@
+/*-------------------------------------------------------------------------------------------
+
+Vars
+
+--------------------------------------------------------------------------------------------*/
+$gridWidth:       1200px; /*  */
+$gridColumns:	  12;
+$gutterWidth:     1.5em; /* 0.9375em; */
+
+$color:           #595959;	/* https://coolors.co/app */
+
+$primary:         #116CB5;	/* blue picked in logo */
+$primary_loud:    #0b4370;	/*  */
+$secondary:       #212125; /* 7C7C7C 212125 grey picked in logo */
+$quiet:           #f6f6f6;
+$loud:            #FFA630; 	/*  */
+$white:           white;
+$black:           black;
+
+$font-family:     'Open Sans', Arial, sans-serif;
+$font-family-hn:  'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-em:  'Pacifico', cursive;
+
+$link-color:      #FFA630;
+$link-hover:      #116CB5;
+$link-visited:    #FFA630;
+$link-active:     #0f1d5d;
+
+
+
+/*---------------------------------------------------------------------------------------------
+
+/sass/modules
+
+--------------------------------------------------------------------------------------------*/
+@import 'modules/normalize';
+//@import 'modules/grid';
+@import 'modules/gridext';
+@import 'modules/mixin';
+@import '../../fonts/icomoon/style';
+/*-------------------------------------------------------------------------------------------
+
+import
+
+--------------------------------------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+/*-------------------------------------------------------------------------------------------
+
+Basic setup
+
+--------------------------------------------------------------------------------------------*/
+*,
+*:before,
+*:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; }
+html { box-sizing: border-box; }
+body { background: $white; cursor: auto; margin: 0; padding: 0; position: relative; }
+html,
+body { height: 100%; font-size: 100%; overflow: none; }
+figure { margin: 0; padding: 0;}
+/*-------------------------------------------------------------------------------------------
+
+Fonts and typography
+
+--------------------------------------------------------------------------------------------*/
+body { 	font: normal 1em/1.5em $font-family; color: $color; 
+		/*-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;*/
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+h1, h2, h3, h4, h5, h6 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } 
+
+h1 { font: 300 3em/1.5em $font-family-hn; letter-spacing: 0em; color: $primary; text-align: center; text-transform: lowercase; }
+h2 { font: 300 1.5em/3em $font-family-hn; letter-spacing: 0em; color: $color; text-transform: lowercase; }
+h3 { font: 400 1.3em/2.5em $font-family-hn; letter-spacing: 0em; color: $primary; }
+h4 { font: 400 1em/2.5em $font-family-hn; letter-spacing: 0em; color: $primary; }
+h5 { font: 400 1em/2.5em $font-family-hn; letter-spacing: 0em; color: $primary_loud; }
+h6 {}
+
+p { margin: 0; }
+
+p+p, p+h2, p+h3, p+table, p+ul, p+ol,
+table+p, table+h2, table+h3, 
+ul+h2, ul+h3 { margin-top: 1.7em; }
+
+strong { color: $black; }
+/*---------------------------------------------------------------------------------------------
+
+links
+
+--------------------------------------------------------------------------------------------*/
+a { @include link-color ($link-color, $link-visited, $link-hover, $link-active); text-decoration: none;
+	/* smooth effect */
+	-webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; transition: all 0.2s ease;
+}
+/*---------------------------------------------------------------------------------------------
+
+page layout
+
+--------------------------------------------------------------------------------------------*/
+body {
+
+	> header { position: relative; height: 305px; background: $secondary; border-top: 5px solid $secondary;
+
+		.logo { position: relative; top: 95px; left: 70px; z-index: 10; float: left; }
+
+		nav.main { position: relative; top: 15px; right: 20px; z-index: 10; float: right; }
+
+		.cover { position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 300px; background: $primary url('') no-repeat top right fixed; background-size: cover; opacity: .1;  }
+
+		#mobile--bar { position: relative; display: none; 
+
+			.hamburger { position: absolute; top: 25px; right: 80px; z-index: 10; font-size: 1.8em; color: $white; }
+			
+			.lang {  position: absolute; top: 25px; right: 20px; z-index: 10; height: 36px; line-height: 36px; width: 36px; border: 1px solid $quiet; text-align: center; color: $white; text-transform: uppercase; font-size: 0.8em; @include border-radius(4px); }
+
+		}
+
+	}
+
+	#content { position: relative; background: $white;
+
+		h2 { position: relative;
+
+			&::before { position: absolute; left: -25px; content:''; display: block; width: 50px; height: 3px; background: $quiet; }
+
+		}
+
+		/* .row { margin: 0 auto 20px auto; } */
+
+	}
+
+	> footer { position: relative; background: $primary; color: $white; font-size: 0.9em; line-height: 140%;
+
+		section.information {  padding: 50px 0 100px 0; }
+
+		section.endline { height: 100px; line-height: 100px; background: $secondary; color: $white; }
+
+	}
+}
+/*---------------------------------------------------------------------------------------------
+
+navigations
+
+--------------------------------------------------------------------------------------------*/
+nav { 
+
+	> ul { margin: 0; padding: 0; list-style: none; 
+
+		> li { display: inline-block; margin: -2px; 
+
+			a { display: inline-block; height: 50px; line-height: 50px; text-decoration: none; @include link-color ($white, $white, $loud, $black); }
+
+			&.current-menu-item {
+				
+				> a { color: $loud; }
+
+			}
+
+			ul li.current-menu-item a { color: $loud; }
+
+		}
+
+	}
+
+}
+
+nav.main { font-size: 0.9em;
+	
+	> ul {
+
+		> li { position: relative; height: 100%;
+
+			> a { margin: 0 20px; 
+
+			}	
+
+			&.menu-item:hover { background: $secondary;
+			
+				ul.sub { display: block; /*left:-50px;*/ }
+
+			} 
+
+			ul.sub { margin: 0; padding: 0; list-style: none; position: absolute; display: none; background: rgba(33, 33, 37, 0.5); border-left: 1px solid $secondary; border-right: 1px solid $secondary; border-bottom: 1px solid $secondary; background: $secondary;
+
+				li.sub-item { width: 240px; /*text-align: center;*/ white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+
+					a { padding: 0 20px; }
+
+				}
+
+			}
+
+		}
+	
+	}
+
+}
+
+nav.quality { 
+
+	ul {
+
+		li { display: block; margin: 0;
+
+			a { height: 0; padding: 0; line-height: inherit; @include link-color ($white, $white , $loud, $black); }
+		
+		}
+
+	}
+
+}
+
+nav.footer { position: relative; font-size: 0.7em; text-align: right;
+
+	ul {
+
+		li {
+
+			a { padding: 5px; @include link-color ($white, $white , $loud, $black); }
+
+		}
+
+	}
+
+}
+
+nav.mobile { margin: 0; padding: 0; list-style: none; background: $secondary; display: none;
+
+	> ul { padding: 40px;
+
+		> li { position: relative; display: block; border-bottom: 1px solid $white;
+
+				&.current-menu-item {
+					
+					> a { color: $loud!important; }
+					
+				}
+
+			a { display: block; height: 50px; line-height: 50px; padding: 0; @include link-color ($white, $white , $loud, $black); border-bottom: 1px solid $secondary; font-size: .8em; }
+
+			> span { position: absolute; top: 9px; right: 0; width: 30px; height: 30px; line-height: 30px; border: 1px solid $black; @include border-radius(50%); text-align: center; color: $white;
+
+				&.active { background: $black; color: $loud;
+
+					&:before { content: "\f068"; }
+
+				}
+
+			}
+		
+			ul { margin: 0 0 0 0px; padding: 0; list-style: none;
+
+				li { 
+
+					a { border-top: 1px solid $black; padding: 0 0 0 20px;  }
+
+					&.current_page_item {
+					
+						> a { color: $loud!important; }
+					
+					}
+
+				}
+			}
+		}
+	}
+}
+
+/*---------------------------------------------------------------------------------------------
+
+template
+
+--------------------------------------------------------------------------------------------*/
+.home { 
+
+	> header { height: 605px; 
+	
+		.cover { height: 600px; }
+
+		.claim { position: absolute; width: 100%; bottom: 120px; color: $white; text-align: center;
+
+			h1 { font-weight: 700; }
+
+		}
+
+	} 
+
+}
+
+#content > article { min-height: 600px;
+
+	> header { padding: 40px 0; background: $quiet; }
+	
+	section.richtext,
+	section.team,
+	section.gallery,
+	section.markets,
+	section.materials,
+	section.contact,
+	section.contactform,
+	section.map { margin: 25px 0; padding: 25px 0; }
+
+	section.hometeasers { margin: 0 0 50px 0; padding: 100px 0 50px 0; }
+	section.map { padding-bottom: 0!important; margin-bottom: 0!important; }
+
+	section:last-child { padding-bottom: 75px; }
+
+	&.with--figure {
+
+		> header { padding: 40px 0 110px 0; margin: 0 0 100px 0;
+
+			.header--figure { position: absolute; left: calc(50% - 90px); top: 145px;  max-width: 180px; }
+
+		}
+
+	}
+
+	&.error404 { height: 800px; padding: 200px; text-align: center; 
+
+		span { font-size: 3em; display: block; color: $loud; }
+
+	}
+
+}
+
+
+section.richtext {
+
+	ul { padding: 0; list-style: none; display: table; /* use table because two lines content */
+
+		li { padding: 0; margin: 0; display: table-row;
+
+			&:before { content: "\f0da"; display: table-cell; font-family:'icomoon'; font-size: .7em; color: $primary; position: relative; width: 20px; }
+
+		}
+
+	} 
+
+}
+
+
+ul.teaser--list { margin: 0; padding: 0; list-style: none; text-align: center;
+
+	li { 
+
+		article { margin: 0 0 80px 0;
+
+			h2.team-title { 
+
+				&::before { display: none!important; } 
+		
+			}
+			a:hover {
+
+				figure { border: 5px solid $loud; }
+
+			}
+			.teaser--figure { max-width: 180px; margin: 0 auto 20px auto; }
+
+			h3 { line-height: 1em; }
+
+			h2.teaser--title { text-align: center; margin: 0; line-height: 2em;
+			
+				&::before { display: none!important; } 
+
+			}
+
+			.teaser--content  { margin: 0 0 40px 0; font-size: 0.8em; line-height: 1.9em; min-height: 90px; } 
+
+			.teaser--more  { } 
+
+		}
+
+	}
+
+}
+
+ul.team--list { margin: 0; padding: 0; list-style: none;
+
+	li { padding: 30px 0; border-top: 1px solid $quiet; 
+
+		&:nth-child(2n+1) { }
+
+		h2.team--title { text-align: center; margin: 0 0 20px 0;
+			
+			&::before { display: none!important; } 
+
+		}
+
+		.team--entry { margin-bottom: 30px; }
+
+		.team--figure { max-width: 180px; margin: 0 auto; }
+
+		.team--entry--title { line-height: 1.5em; /* border-bottom: 2px solid $quiet; */ }
+
+		.team--entry  { text-align: center; } 
+
+	}
+
+}
+
+ul.file--list { margin: 0; padding: 0; list-style: none; font-size: 0.9em;
+
+	li { margin: 0 0 25px 0; padding: 20px 0; background: $quiet; overflow: hidden;
+
+		.file--dl { text-align: right; }
+
+	}
+
+}
+
+ul.gallery--list { margin: 0; padding: 0; list-style: none; font-size: 0.9em;
+
+	li { margin: 0; padding: 0; position: relative;
+		
+		figure { border-bottom: 1px solid $quiet;
+
+			img { display: block; }
+
+			figcaption { font-size: 0.8em; }
+
+		}
+		
+	}
+
+}
+
+.flexslider { position: relative; text-align: center;
+
+	ol.flex-control-paging { margin: 0 auto; padding: 0; list-style: none; text-align: center;
+
+		li { display: inline-block; margin: 0 5px; height: 15px; line-height: 15px;
+
+			a { width: 15px; height: 15px; display: inline-block; background: $quiet; text-indent: -999999px; @include border-radius( 50% ); 
+
+				&.flex-active { background: $primary; }
+
+			}
+
+		}
+
+	}
+
+	ul.flex-direction-nav { margin: 0; padding: 0; list-style: none; 
+
+		li { 
+
+			a { display: block; width: 50px; height: 50px; line-height: 50px; background: $primary; border: 4px solid $quiet; @include border-radius( 50% ); @include link-color ($white, $white , $loud, $black); }
+
+			&.flex-nav-prev a { position: absolute; top: calc(50% - 50px); left: 5px;
+
+				&:before { position: relative; top: -3px; left: -1px; font-family: 'icomoon'; content: "\f053"; display: block; }
+				
+			}
+
+			&.flex-nav-next a { position: absolute; top: calc(50% - 50px); right: 5px; 
+				
+				&:before { position: relative; top: -3px; left: 1px; font-family: 'icomoon'; content: "\f054";  display: block; }
+
+			}
+
+		}
+
+	}
+
+}
+
+/* tpl contact */
+section.contact {
+
+
+
+}
+
+
+section.map { position: relative; text-align: center;
+	
+	#map { height: 700px; }
+
+	a.btn { position: absolute; width: 140px; bottom: 20px; left: calc( 50% - 70px ); background: $white; 
+	
+		&:hover { background: $primary; color: $white; }
+
+	}
+}
+
+
+.header--team--title { position: absolute; top: 235px; left: calc(50% + 90px); z-index: 9999999; padding: 10px; font-size: .75em; line-height: 1em; }
+
+
+/*---------------------------------------------------------------------------------------------
+
+footer
+
+--------------------------------------------------------------------------------------------*/
+#footmap { position: relative; 
+
+	.poi { position: absolute; top: 90px; left: 125px; width: 20px; height: 20px; background: $white; @include border-radius(50%); /* border: 1px solid $primary_loud; */ 
+
+		/*span { position: relative; top: -22px; left: -8px; font-size: 2em; color: $white; }*/
+
+		.label { position: relative; top: -3px; left: 30px; font-size: 0.8em; }
+
+	}
+
+	svg { width: 430px; height: 275px; }
+
+}
+
+#lift { position: relative; width: 100%; font-size: 2em;
+
+	> span { position: absolute; left: calc( 50% - 34.5px ); z-index: 15; display: inline-block; text-align: center; bottom: -35px; margin: 0 auto; width: 75px; height: 75px; line-height: 65px; background: $secondary; @include border-radius( 50% );  border: 4px solid $quiet; @include link-color ($white, $white , $loud, $black); cursor: pointer; }
+
+}
+/*---------------------------------------------------------------------------------------------
+
+helpers
+
+--------------------------------------------------------------------------------------------*/
+img.responsive { width: 100%; max-width: 100%; height: auto;}
+
+figure.circle { @include border-radius(50%); overflow: hidden; display: inline-block; border: 5px solid $quiet;
+	
+	img { display: block; }
+
+}
+
+.btn { display: inline-block; height: 50px; line-height: 45px; padding: 0 20px; border: 2px solid $primary; @include link-color ($primary, $primary , $white, $black); text-decoration: none; @include border-radius(4px);
+
+	&:hover { background: $primary; }
+
+	&.btn--white { @include link-color ($white, $white , $primary, $black);
+
+		&:hover { background: $white; }
+
+	}
+
+}
+/*---------------------------------------------------------------------------------------------
+
+sass/partials
+
+--------------------------------------------------------------------------------------------*/
+@import 'partials/form';
+@import 'partials/table';
+@import 'modules/responsive';

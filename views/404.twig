@@ -1,0 +1,19 @@
+{# 404.twig #}
+{% extends "snippets/skeleton.twig" %}
+{% block header %}
+{# override to remove header.tpl #}
+{% endblock %}
+
+{% block content %}
+<article class="error404">
+	<div class="row">
+		<div class="large-8 large-centered columns">
+			<span class="icon-map-signs"></span>
+			<h1>{{post.title}}</h1>
+			{{post.content}}
+			<br>
+			<a href="{{ site.url }}" class="btn">{{ __('Homepage', 'metaltec') }}</a>
+		</div>
+	</div>
+</article>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "snippets/skeleton.twig" %}
+{% block content %}
+
+{% include 'snippets/breadcrumb.twig' %}
+
+{% for post in posts %}
+<div class="row">
+	<article class="large-8 columns">
+		<h1>{{post.title}}</h1>
+		{{post.content}}
+	</article>
+</div>
+{% else %}
+Sorry, no posts matched your criteria
+{% endfor %}
+
+{% endblock %}

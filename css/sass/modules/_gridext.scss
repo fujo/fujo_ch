@@ -1,0 +1,183 @@
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.row { margin: 0 auto; max-width: $gridWidth; width: 100%; }
+.row:before, 
+.row:after { content: " "; display: table; }
+.row:after {clear: both; }
+
+/* collapse */
+
+.row.collapse > .column,
+.row.collapse > .columns {padding-left: 0; padding-right: 0; }
+.row.collapse .row { margin-left: 0; margin-right: 0; }
+
+/* row in row */
+
+.row .row { margin: 0 ( $gutterWidth * -1 ); /* $gutterW */ max-width: none; width: auto; } 
+.row .row:before, 
+.row .row:after { content: " "; display: table; } 
+.row .row:after { clear: both; }
+
+.row .row.collapse { margin: 0; max-width: none; width: auto; }
+.row .row.collapse:before, .row .row.collapse:after { content: " "; display: table; }
+.row .row.collapse:after { clear: both; }
+
+/* columns */
+
+.column,
+.columns { position: relative; padding-left: $gutterWidth; padding-right: $gutterWidth; width: 100%; float: left; }
+
+.column + .column:last-child,
+.columns + .column:last-child, 
+.column + .columns:last-child,
+.columns + .columns:last-child { float: right; }
+
+.column + .column.end,
+.columns + .column.end, 
+.column + .columns.end,
+.columns + .columns.end { float: left; }
+
+
+/* 
+
+xsmall screens width 
+
+*/
+@media only screen {
+  
+  // Define Individual Grid Classes
+  
+  @for $i from 1 to $gridColumns + 1
+  {
+
+    // Convert Pixels to Percentages
+
+    // dividing by the same unit 
+    // forces sass to return a value with no unit
+    $gridWidthNoUnit: $gridWidth / 1px;
+    $colwidth: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * $i * 1%;
+
+    // Calculate responsive grid sizes if required
+    .xsmall-#{$i} { width: $colwidth; background: grey; }
+
+  }
+
+  .column,
+  .columns { padding-left: $gutterWidth / 2 ; padding-right: $gutterWidth / 2; background: yellow; }
+
+  .column.xsmall-centered,
+  .columns.xsmall-centered { margin-left: auto; margin-right: auto; float: none; }
+
+}
+/* 
+
+small screens width <= 641px 
+
+*/
+@media only screen and (min-width: 375px) {
+
+  // Define Individual Grid Classes
+  
+  @for $i from 1 to $gridColumns + 1
+  {
+    
+    // Convert Pixels to Percentages
+
+    // dividing by the same unit 
+    // forces sass to return a value with no unit
+    $gridWidthNoUnit: $gridWidth / 1px;
+    $colwidth: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * $i * 1%;
+
+    // Calculate responsive grid sizes if required
+    .small-#{$i} { width: $colwidth; background: green; }
+    
+    //
+    $pushpull: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * ( $i - 1 ) * 1%;
+    .push-#{$i - 1} {position: relative; left: $pushpull; right: auto; }
+    .pull-#{$i - 1} { position: relative; right: $pushpull; left: auto; }
+
+  }
+
+  .column,
+  .columns { padding-left: $gutterWidth; padding-right: $gutterWidth; }
+
+  .column.medium-centered,
+  .columns.medium-centered { margin-left: auto; margin-right: auto; float: none; }
+
+}
+
+/* 
+
+medium screens width <= 641px 
+
+*/
+@media only screen and (min-width: 767px) {
+
+  // Define Individual Grid Classes
+  
+  @for $i from 1 to $gridColumns + 1
+  {
+    
+    // Convert Pixels to Percentages
+
+    // dividing by the same unit 
+    // forces sass to return a value with no unit
+    $gridWidthNoUnit: $gridWidth / 1px;
+    $colwidth: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * $i * 1%;
+
+    // Calculate responsive grid sizes if required
+    .medium-#{$i} { width: $colwidth; background: red; }
+    
+    //
+    $pushpull: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * ( $i - 1 ) * 1%;
+    .push-#{$i - 1} {position: relative; left: $pushpull; right: auto; }
+    .pull-#{$i - 1} { position: relative; right: $pushpull; left: auto; }
+
+  }
+
+  .column,
+  .columns { padding-left: $gutterWidth; padding-right: $gutterWidth; }
+
+  .column.medium-centered,
+  .columns.medium-centered { margin-left: auto; margin-right: auto; float: none; }
+
+}
+
+/* 
+
+large screens width >= 1025px 
+
+*/
+@media only screen and (min-width: 1024px) {
+
+  // Define Individual Grid Classes
+  
+  @for $i from 1 to $gridColumns + 1
+  {
+
+    // Convert Pixels to Percentages
+  
+    // dividing by the same unit 
+    // forces sass to return a value with no unit
+    $gridWidthNoUnit: $gridWidth / 1px;
+    $colwidth: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * $i * 1%;
+
+    // Calculate responsive grid sizes if required
+    .large-#{$i} { width: $colwidth; background: yellow; }
+    
+    //
+    $pushpull: ( ( $gridWidthNoUnit / $gridColumns * 100 ) / $gridWidthNoUnit ) * ( $i - 1 ) * 1%;
+    .push-#{$i - 1} {position: relative; left: $pushpull; right: auto; }
+    .pull-#{$i - 1} { position: relative; right: $pushpull; left: auto; }
+
+  }
+
+  .column,
+  .columns { position: relative; padding-left: $gutterWidth; padding-right: $gutterWidth; float: left; }
+
+  .column.large-centered, 
+  .columns.large-centered { margin-left: auto; margin-right: auto; float: none; }
+
+
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" {{ site.language_attributes }} style=" margin-top:  0 !important; ">
+<!--<![endif]-->
+<head>
+<!--
+                                                    _       
+  __ _   __ _  _   _   __ _ __   __  ___  _ __   __| |  ___ 
+ / _` | / _` || | | | / _` |\ \ / / / _ \| '__| / _` | / _ \
+| (_| || (_| || |_| || (_| | \ V / |  __/| |   | (_| ||  __/
+ \__,_| \__, | \__,_| \__,_|  \_/   \___||_|    \__,_| \___|
+           |_|                                                                                       
+
+web agency
+biel / bienne, switzerland
+
+info@aquaverde.ch
++41 32 322 99 80
+
+-->
+    {% block head %}
+    <title>{{ site.name }} - {{ post.title }}</title>
+    <meta charset="{{ site.charset }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="fr" />
+    <meta name="description" content="{{ post.content | truncate(160) | striptags }}, {{ metadescription }}" />
+    <meta name="keywords" content="{{ metakeywords }}">
+    <meta name="author" content="{{ post.modified_author }}" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
+    <!-- we're just humans -->
+    <link type="text/plain" rel="author" href="{{ site.url }}/humans.txt" />
+    <!-- wphead -->
+    {{ wp_head }}
+    {% endblock %}
+	</head>
+	<body class="{{ body_class }}">
+        {% include 'snippets/mobilenav.twig' %}
+
+        {% block header %}
+            {% include 'snippets/header.twig' %}
+        {% endblock %}
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        {#
+        {% block footer %}
+            {% include 'snippets/footer.twig' %}
+        {% endblock %}
+        #}
+        {{ wp_footer }}
+        <!-- for outdated browsers 
+        http://www.browser-update.org project -->
+        <script> 
+            var $buoop = {c:2}; 
+            function $buo_f(){ 
+               var e = document.createElement("script"); 
+               e.src = "//browser-update.org/update.min.js"; 
+               document.body.appendChild(e);
+            };
+            try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+            catch(e){window.attachEvent("onload", $buo_f)}
+        </script> 
+	</body>
+</html>

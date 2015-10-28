@@ -1,0 +1,29 @@
+table { width: 100%!important; float: none!important; text-align: left!important; font-size: .7em; background: $quiet;
+
+	tr { 
+
+		td { padding: 5px 10px!important; border-bottom: 1px solid $white; border-right: 1px solid $white; }
+
+	}
+
+	thead {
+
+		tr { 
+
+			td { color: $white; background: $primary; padding: 5px 10px!important; border-bottom: 1px solid $white; border-right: 1px solid $white; }
+
+		}
+
+	}
+
+	tfoot {
+
+		tr { 
+
+			td { color: $white; background: $primary; padding: 5px 10px!important; border-bottom: 1px solid $white; border-right: 1px solid $white; }
+
+		}
+
+	}
+
+}

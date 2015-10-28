@@ -1,0 +1,35 @@
+/*-------------------------------------------------------------------------------------------
+Form
+--------------------------------------------------------------------------------------------*/
+form { padding: 30px; background: $quiet; @include border-radius( 5px ); font-size: 0.8em; 
+
+	input, 
+	select,	
+	button,
+	textarea { height: 30px; width: 100%; line-height: 30px; padding: 5px 10px; border: none; @include border-radius(5px); 
+	/* smooth effect */
+	-webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; transition: all 0.2s ease;
+	}
+
+	input { height: 40px; line-height: 40px; 
+
+		&:focus { /* background: $primary; */ border: 3px solid $primary; outline: none; }
+
+	}
+
+	textarea { height: 150px; min-height: 50px; 
+
+		&:focus { /* background: $primary; */ border: 3px solid $primary; outline: none; }
+
+	}
+	
+	select {  }
+
+	input[type="submit"],
+	button[type="submit"] { width: auto; background: $primary; color: $white; border: 2px solid $primary; line-height: 1em;
+
+		&:hover { background: $white; color: $primary; }
+
+	}
+
+}

@@ -1,0 +1,2 @@
+- "dist/script.js" is a compilation of "plugins" + app.js drived by Gulp
+- "vendor" are not compiled, but included directly into html

@@ -1,0 +1,36 @@
+<header>
+	<div class="logo">
+		<a href="{{ site.link }}">
+			<!--<img src="{{site.theme.link}}/img/logo_white.png" alt="logo metaltec">-->
+			&#9874;
+		</a>
+	</div>
+	<nav class="main">		
+		<ul>
+        {% for item in mainmenu.get_items %}
+            <li class="{{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+                {% if item.get_children %}
+                    <ul class="sub">
+                      {% for child in item.get_children %}
+                        <li class="sub-item {{child.classes | join(' ')}}">
+                        	<a href="{{child.get_link}}" >{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+		{% for lang in langmenu %}
+			<li><a href="{{ lang.url }}" class="">{{ lang.slug | upper }}</a></li>
+		{% endfor %}
+		</ul>
+	</nav>
+	<section id="mobile--bar">
+		<span class="hamburger icon-bars"></span>
+	    {% for lang in langmenu %}
+	        {% if lang.code != current_lang_code %}
+	        <a href="{{ lang.url }}" class="lang">{{ lang.code }}</a>
+	        {% endif %}
+        {% endfor %}
+	</section>
+</header>

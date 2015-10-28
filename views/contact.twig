@@ -1,0 +1,39 @@
+{# page.twig #}
+{% extends "snippets/skeleton.twig" %}
+{% block head %}
+    {{ parent() }}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+{% endblock %}
+{% block content %}
+<article class="with--figure">
+	<header>
+		<h1>{{ post.title }}</h1>
+		{% if team %}
+		<figure class="circle header--figure header--figure--team">
+			<img class="responsive" src="{{ team.thumbnail.src| resize(400,400) }}" />
+		</figure>
+		<div class="header--team--title">
+			{{ team.title }},
+			{{ team.get_field('function') }}
+		</div>
+		{% endif %}
+	</header>
+	<section class="contact">
+		<div class="row">
+			<div class="small-12 medium-5 large-4 columns">
+				{{ post.content }}
+			</div>
+			<div class="small-12 medium-7 large-8 columns">
+				<h3>{{ form.title }}</h3>
+				{% filter shortcodes %}
+				[contact-form-7 id="{{ form.id }}"]
+				{% endfilter %}
+			</div>	
+		</div>
+	</section>
+	<section class="map">
+		<div id="map"></div>
+		<a href="https://www.google.ch/maps/dir//Metaltec+AG,+Bürenstrasse,+Perles/" target="_blank" class="btn">{{__('Itinerary', 'metaltec')}}</a>
+	</section>
+</article>
+{% endblock %}

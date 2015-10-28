@@ -1,0 +1,16 @@
+{# page.twig #}
+{% extends "snippets/skeleton.twig" %}
+{% block content %}
+
+<article class="row">
+
+	<h1 class="small-12 columns">
+		{{ post.title }}
+	</h1>
+	<section class="small-12 large-6 columns">
+		{{ post.content }}
+	</section>
+
+</article>
+
+{% endblock %}

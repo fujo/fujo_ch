@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: metaltec\n"
+"POT-Creation-Date: 2015-10-13 16:08+0200\n"
+"PO-Revision-Date: 2015-10-13 16:09+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ../views\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.twig:15
+msgid "Homepage"
+msgstr "Startseite"
+
+#: contact.twig:36
+msgid "Itinerary"
+msgstr "Anfahrtsplan"
+
+#: footer.twig:77
+msgid "Adresse"
+msgstr "Adresse"
+
+#: footer.twig:81
+msgid "Quality Menu"
+msgstr "Qualitätssicherung test"
+
+#: home.twig:16
+msgid "Information"
+msgstr "Information"
+
+#: home.twig:36
+msgid "Discover"
+msgstr "Entdecken"
+
+#: home.twig:42 page.twig:92 page.twig:121
+msgid "Read"
+msgstr "Weiterlesen"
+
+#: page.twig:32
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: page.twig:41
+msgid "Download"
+msgstr "Herunterladen"
+
+#: page.twig:55
+msgid "Gallery"
+msgstr "Bildergalerie"

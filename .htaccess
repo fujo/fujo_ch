@@ -1,0 +1,13 @@
+# disable hotlinking of images with forbidden or custom image option
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?wpbeginner.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?google.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?feeds2.feedburner.com/wpbeginner [NC]
+# RewriteRule \.(jpg|jpeg|png|gif)$ – [NC,F,L] 
+
+# ressources compression gzip format
+php_value upload_max_filesize 1024M
+php_value post_max_size 1024M
+php_value max_execution_time 1000
+php_value max_input_time 1000

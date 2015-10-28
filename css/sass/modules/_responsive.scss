@@ -1,0 +1,71 @@
+/* smartphone + tablet */
+@media only screen and (max-width: 1024px ) { 
+
+	nav.main { display: none; }
+	body > header #mobile--bar { display: block; }
+
+	.flex-direction-nav { display: none; }
+
+}
+
+/* smartphone */
+@media only screen and (max-width: 767px ) { 
+
+	h1 { font-size: 1.5em; }
+	
+	//.columns { margin-bottom: 60px; }
+
+	body > header { height: 100px;
+
+		.logo { top: 20px; left: 25px; text-align: left; 
+		
+			img { width: 150px; }
+
+		}
+
+		.cover { height: 510px; }
+
+		.claim > p { display: none; }
+
+	}
+
+	body.home > header { height: 350px;
+
+		.claim { font-size: 0.6em; bottom: 80px; }
+	
+		.cover { height: 510px; }
+
+	}
+
+	#content>article section.contact, 
+	#content>article section.contactform, 
+	#content>article section.gallery, 
+	#content>article section.map, 
+	#content>article section.markets, 
+	#content>article section.materials, 
+	#content>article section.richtext, 
+	#content>article section.team { margin: 0; }
+
+	#content > article.with--figure > header .header--figure { top: 100px; }
+
+	#footmap { display: none; }
+	.information { text-align: center; }
+	nav.footer ul { text-align: center!important; margin-top: 15px; }
+
+}
+
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#footmap { display: none; }
+}
+
+/* tablet */
+@media only screen and (min-width: 768px ) and (max-width: 1024px ) {
+
+
+
+} 
+
+/* desktop */
+@media only screen and (min-width: 1025px ) { } 

@@ -1,0 +1,35 @@
+                                                    _       
+  __ _   __ _  _   _   __ _ __   __  ___  _ __   __| |  ___ 
+ / _` | / _` || | | | / _` |\ \ / / / _ \| '__| / _` | / _ \
+| (_| || (_| || |_| || (_| | \ V / |  __/| |   | (_| ||  __/
+ \__,_| \__, | \__,_| \__,_|  \_/   \___||_|    \__,_| \___|
+           |_|                                              
+
+Because we are people, not machines
+
+http://humanstxt.org/
+
+// TEAM //////////////////////////////////////////////////////////////////////////
+
+Company:	aquaverde gmbh
+Site:		http://www.aquaverde.ch	
+Location:	Switzerland, Biel/Bienne
+Contact:	office [at] aquaverde [dot] ch
+
+Webdesign:	Jonathan Fuchs
+Contact:	jonathan [at] aquaverde [dot] ch
+
+Developer:	Jonathan Fuchs
+Contact:	jonathan [at] aquaverde [dot] ch
+
+// SITE //////////////////////////////////////////////////////////////////////////
+
+Launch date:	2015/11/01
+Standards:		HTML5, CSS3
+Components:		jQuery, Modernizr	
+CMS:			WordPress 4.1
+Plugins:		Timber, WPML, ACF Pro, Contact Form 7
+
+
+
+/* THANKS FOR BEING HERE */
