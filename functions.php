@@ -111,7 +111,7 @@ function add_to_context($data){
     /* Add WPML API to timber context */
     // $data['current_lang_code'] = ICL_LANGUAGE_CODE;
     // https://wpml.org/documentation/getting-started-guide/language-setup/custom-language-switcher/
-    $data['langmenu'] =   pll_the_languages(array('raw'=>1));
+    // $data['langmenu'] =   pll_the_languages(array('raw'=>1));
     /*
     echo '<pre>';
     print_r( pll_the_languages(array('raw'=>1)) );
